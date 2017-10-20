@@ -1,0 +1,23 @@
+{
+  "name": "react-native-ernpetstore-api-impl",
+  "version": "0.0.3",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "react-native-ernpetstore-api": "0.0.3"
+  },
+  "ern": {
+    "moduleType": "ern-native-api-impl",
+    "containerGen": {
+      "hasConfig": false,
+      "apiNames": [
+        "Pet",
+        "Store",
+        "User"
+      ]
+    }
+  },
+  "keywords": [
+    "ern-native-api-impl"
+  ]
+}
