@@ -13,18 +13,27 @@
 
 package com.ern.api.impl;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.ernpetstore.ern.api.PetApi;
+import com.ernpetstore.ern.model.Pet;
+import com.walmartlabs.electrode.reactnative.bridge.ElectrodeBridgeRequestHandler;
+import com.walmartlabs.electrode.reactnative.bridge.ElectrodeBridgeResponseListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
-* This class is a generated place holder for your Pet implementations.!
-* Feel free to modify this class contents as needed. `ern regen-api-impl` command WILL NOT modify the content of this class.
-* Don't modify the class name as this naming convention is used for container generation.
-*/
+ * This class is a generated place holder for your Pet implementations.!
+ * Feel free to modify this class contents as needed. `ern regen-api-impl` command WILL NOT modify the content of this class.
+ * Don't modify the class name as this naming convention is used for container generation.
+ */
 public class PetApiRequestHandlerProvider extends RequestHandlerProvider<PetApiRequestHandlerProvider.PetApiConfig> implements PetApiRequestHandler {
 
     /**
-    * @param requestHandlerConfig : Optional config object that can be passed to an api impl provider.
-    */
+     * @param requestHandlerConfig : Optional config object that can be passed to an api impl provider.
+     */
     PetApiRequestHandlerProvider(@Nullable PetApiRequestHandlerProvider.PetApiConfig requestHandlerConfig) {
         super(requestHandlerConfig);
     }
@@ -41,7 +50,21 @@ public class PetApiRequestHandlerProvider extends RequestHandlerProvider<PetApiR
 
     @Override
     public void registerFindPetsByStatusRequestHandler() {
-        //TODO
+
+        //Sample Implemenatation to return dummy pet list.
+        PetApi.requests().registerFindPetsByStatusRequestHandler(new ElectrodeBridgeRequestHandler<List<String>, List<Pet>>() {
+            @Override
+            public void onRequest(@Nullable List<String> payload, @NonNull ElectrodeBridgeResponseListener<List<Pet>> responseListener) {
+                List<String> photoUrls = new ArrayList<String>() {{
+                }};
+                final Pet pet = new Pet.Builder("Dog", photoUrls).build();
+
+                List<Pet> pets = new ArrayList<Pet>() {{
+                    add(pet);
+                }};
+                responseListener.onSuccess(pets);
+            }
+        });
     }
 
     @Override
