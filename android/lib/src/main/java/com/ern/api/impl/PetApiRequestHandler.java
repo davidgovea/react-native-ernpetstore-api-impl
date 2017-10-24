@@ -30,6 +30,8 @@ interface PetApiRequestHandler {
 
     void registerFindPetsByStatusRequestHandler();
 
+    void registerFindPetsByTypeRequestHandler();
+
     void registerFindPetsByTagsRequestHandler();
 
     void registerGetPetByIdRequestHandler();

@@ -35,6 +35,7 @@ public final class PetApiController {
             sRequestHandler.registerUpdatePetRequestHandler();
             sRequestHandler.registerAddPetRequestHandler();
             sRequestHandler.registerFindPetsByStatusRequestHandler();
+            sRequestHandler.registerFindPetsByTypeRequestHandler();
             sRequestHandler.registerFindPetsByTagsRequestHandler();
             sRequestHandler.registerGetPetByIdRequestHandler();
             sRequestHandler.registerUpdatePetWithFormRequestHandler();

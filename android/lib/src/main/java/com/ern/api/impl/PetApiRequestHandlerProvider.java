@@ -68,6 +68,11 @@ public class PetApiRequestHandlerProvider extends RequestHandlerProvider<PetApiR
     }
 
     @Override
+    public void registerFindPetsByTypeRequestHandler() {
+
+    }
+
+    @Override
     public void registerFindPetsByTagsRequestHandler() {
         //TODO
     }
