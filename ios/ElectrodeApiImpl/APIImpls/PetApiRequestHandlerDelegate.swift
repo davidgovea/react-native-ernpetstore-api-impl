@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.ern.api.impl;
+import Foundation
 
 /**
  * GENERATED CODE: DO NOT MODIFY
@@ -19,8 +19,18 @@ package com.ern.api.impl;
  * Link: TODO: provide the electrode native link to ern regen-api-impl here.
  * <p>
  * <p>
- * Marker interface that is used for passing custom config implementations to an API request handler implementation.
+ * Marker interface that is used for request handler implementations inside an api.
  */
-public interface RequestHandlerConfig {
 
+@objc public protocol PetApiRequestHandlerDelegate
+{
+    func registerUpdatePetRequestHandler()
+    func registerAddPetRequestHandler()
+    func registerFindPetsByStatusRequestHandler()
+    func registerFindPetsByTypeRequestHandler()
+    func registerFindPetsByTagsRequestHandler()
+    func registerGetPetByIdRequestHandler()
+    func registerUpdatePetWithFormRequestHandler()
+    func registerDeletePetRequestHandler()
+    func registerUploadFileRequestHandler()
 }

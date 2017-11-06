@@ -11,16 +11,32 @@
  * limitations under the License.
  */
 
-package com.ern.api.impl;
+import Foundation
 
 /**
  * GENERATED CODE: DO NOT MODIFY
  * Do not modify the content of this class as it will be regenerated every time an api-impl regen command is executed.
  * Link: TODO: provide the electrode native link to ern regen-api-impl here.
- * <p>
- * <p>
- * Marker interface that is used for passing custom config implementations to an API request handler implementation.
  */
-public interface RequestHandlerConfig {
+@objc public final class StoreApiController: NSObject
+{
+    // Singleton
+    static let instance = StoreApiController()
+    private override init() {}
+    
+    private var requestHandler: StoreApiRequestHandlerProvider?
+    
+    public func register(config: StoreApiConfig? = nil)
+    {
+        // Only register once.
+        guard self.requestHandler == nil else
+        {
+            return
+        }
 
+        self.requestHandler = StoreApiRequestHandlerProvider(handlerConfig: config)
+        self.requestHandler?.registerPlaceOrderRequestHandler()
+        self.requestHandler?.registerGetOrderByIdRequestHandler()
+        self.requestHandler?.registerDeleteOrderRequestHandler()
+    }
 }
